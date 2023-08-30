@@ -13,8 +13,6 @@ mov ah, 0x0E
 jmp print_char_loop
 
 lp:
-	mov ax, 0x07c0
-	mov ds, ax
 	
 	mov ah, 0x0
 	mov al, 0x3
@@ -29,7 +27,7 @@ print_char_loop:
 	lodsb
 	
 	or al, al
-	jz hang
+	jz lp
 	
 
 	int 0x10
